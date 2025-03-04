@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %>
+
+
+<body>
+    
+    <%- include('partials/nav') %>
+    <main>
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Latest Blogs</h1>
+            <div class="row">
+                 <% blogs.forEach(blog => { %>
+    <div class="col-md-4 mb-4" id="blog-<%= blog.id %>">
+        <div class="card">
+            <img src="<%= blog.image_url %>" class="card-img-top" alt="Blog Image">
+            <div class="card-body">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <p class="card-text"><%= blog.content.substring(0, 100) %>...</p>
+                <a href="/blogs/<%= blog.id %>" class="btn btn-primary">Read More</a>
+                <button class="btn btn-danger" onclick="deleteBlog('<%= blog.id %>')">Delete</button>
+            </div>
+        </div>
+    </div>
+<% }); %>
+
+            </div>
+        </div>
+     
+    
+  </main> 
+  <script>
+    function deleteBlog(blogId)
+    {
+        if (confirm("Are you sure you want to delete this blog?")) {
+        fetch(`/blogs/${blogId}`, {
+            method: "DELETE"
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to delete blog");
+            }
+            return response.json(); // Parse response JSON
+        })
+        .then(data => {
+            console.log("Blog deleted:", data);
+            const blogCard = document.getElementById(`blog-${blogId}`);
+            if (blogCard) {
+                blogCard.remove(); // Remove the blog card from the UI
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Error deleting blog.");
+        });
+    }
+    }
+  
+  
+  </script>
+
+  
+        
+   
+    
+</body>
+</html>

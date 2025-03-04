@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+        <%- include('partials/head') %>
+
+<body>
+    <%- include('partials/nav') %>
+    
+    <h1>Add Blogs </h1>
+    <div>
+        <form method="POST" action="/add-blog">
+            <div class="mb-3">
+                <label  class="form-label">Blog Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Enter Blog Title" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Blog Content</label>
+                <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your blog Content here"></textarea>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Blog Image Url</label>
+                <input type="text" class="form-control" name="image_url" placeholder="Enter Blog Image url" />
+            </div>
+            <div class="mb-3" >
+                <button type="submit" class="btn btn-primary mb-3" >Post Blog</button>
+            </div>
+            
+        </form>
+    </div>
+    
+
+
+</body>
+</html>
