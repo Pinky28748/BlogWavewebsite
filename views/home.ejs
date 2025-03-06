@@ -6,6 +6,13 @@
 <body>
     
     <%- include('partials/nav') %>
+    <% if (user) { %>
+        <h1>Welcome, <%= user.email %>!</h1>
+        <a href="/logout">Logout</a>
+    <% } else { %>
+        <h1>Welcome to Blog Website</h1>
+        <a href="/login">Login</a> | <a href="/register">Register</a>
+    <% } %>
     <main>
         <div class="container mt-5">
             <h1 class="text-center mb-4">Latest Blogs</h1>

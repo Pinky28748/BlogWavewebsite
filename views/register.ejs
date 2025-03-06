@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %>
+<body>
+    <h1>Register</h1>
+
+    <div>
+        <form method="POST" action="/register">
+            <div class="mb-3">
+                <label  class="form-label">First Name</label>
+                <input type="text" class="form-control" name="firstname" placeholder="Enter First Name" />
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name" />
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter Email" />
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Enter Password" />
+            </div>
+            
+            <div class="mb-3" >
+                <button type="submit" class="btn btn-primary mb-3" >Register</button>
+            </div>
+            
+        </form>
+    </div>
+    <a href="/login" >Already Registered ? Login</a>
+
+</body>
+</html>

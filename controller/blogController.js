@@ -4,7 +4,7 @@ exports.getBlogs = async (req,res) => {
     try
     {
         const blogs = await Blog.find();
-        return res.render("home",{ blogs});
+        return res.render("home",{ blogs,user : req.session.user});
     }
     catch(error)
     {

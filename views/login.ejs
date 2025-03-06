@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %>
+<body>
+    <h1>Login</h1>
+    <div>
+        <form method="POST" action="/login">
+            
+            <div class="mb-3">
+                <label  class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter Email" />
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Enter Password" />
+            </div>
+            
+            <div class="mb-3" >
+                <button type="submit" class="btn btn-primary mb-3" >Login</button>
+            </div>
+            
+        </form>
+    </div>
+    <a href="/register" >New User ? Regsiter</a>
+
+</body>
+</html>
